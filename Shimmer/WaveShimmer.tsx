@@ -1,12 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import { useEffect, useMemo, useRef } from 'react'
-import { Animated, StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
-
-interface WaveShimmerProps{
-    width: number,
-    height: number,
-    style?: StyleProp<ViewStyle>
-}
+import { Animated, StyleSheet, View } from 'react-native'
+import { WaveShimmerProps } from '../types'
 
 export default function WaveShimmer({width, height, style}:WaveShimmerProps) {
 
@@ -14,7 +9,7 @@ export default function WaveShimmer({width, height, style}:WaveShimmerProps) {
     const gradientStartPosition = useMemo(()=>({x:1, y:1}),[])
     const translateX = useRef(new Animated.Value(-width)).current
 
-    const parentContainerStyles = useMemo(()=>([styles.container,{width, height, ...style as object}]),[])
+    const parentContainerStyles = [styles.container,{width, height, ...style as object}]
 
     useEffect(()=>{
         Animated.loop(
