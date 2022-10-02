@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useRef } from 'react'
 import { Animated, Easing, StyleSheet, View } from 'react-native'
-import { PulseShimmerProps } from '../types'
+import { SubShimmerProps } from '../types'
 
-export default function PulseShimmer({width, height, style}:PulseShimmerProps) {
+export default function PulseShimmer({width, height, style}:SubShimmerProps) {
 
     const opacity = useRef(new Animated.Value(0)).current
 

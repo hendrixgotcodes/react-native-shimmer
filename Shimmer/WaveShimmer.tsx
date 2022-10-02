@@ -1,9 +1,9 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import { useEffect, useMemo, useRef } from 'react'
 import { Animated, StyleSheet, View } from 'react-native'
-import { WaveShimmerProps } from '../types'
+import { SubShimmerProps } from '../types'
 
-export default function WaveShimmer({width, height, style}:WaveShimmerProps) {
+export default function WaveShimmer({width, height, style}:SubShimmerProps) {
 
     const gradientColors = useMemo(()=>["transparent", "rgba(0,0,0,0.05)", "rgba(0,0,0,0.03)", "rgba(0,0,0,0.02)", "transparent"],[])
     const gradientStartPosition = useMemo(()=>({x:1, y:1}),[])
