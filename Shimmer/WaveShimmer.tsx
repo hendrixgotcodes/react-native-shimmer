@@ -9,7 +9,7 @@ export default function WaveShimmer({width, height, style}:SubShimmerProps) {
     const gradientStartPosition = useMemo(()=>({x:1, y:1}),[])
     const translateX = useRef(new Animated.Value(-width)).current
 
-    const parentContainerStyles = [styles.container,{width, height, ...style as object}]
+    const parentContainerStyles = [styles.container,{ ...style as object, width, height}]
 
     useEffect(()=>{
         Animated.loop(

@@ -6,7 +6,7 @@ export default function PulseShimmer({width, height, style}:SubShimmerProps) {
 
     const opacity = useRef(new Animated.Value(0)).current
 
-    const parentContainerStyles = useMemo(()=>([styles.container,{width, height, ...style as object}]),[])
+    const parentContainerStyles = useMemo(()=>([styles.container,{...style as object, width, height}]),[])
     const animatedViewStyles = useMemo(()=>([
         styles.animatedView, {backgroundColor: opacity.interpolate({
             inputRange: [0,1,2],
@@ -23,7 +23,7 @@ export default function PulseShimmer({width, height, style}:SubShimmerProps) {
 
     
 
-    useEffect(()=>Animated.loop(Animated.timing(opacity, animationTimingConfig)).start(),[width])
+    useEffect(()=>Animated.loop(Animated.timing(opacity, animationTimingConfig)).start(),[])
     
   return (
     <View
